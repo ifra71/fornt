@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css'; // Import your CSS styles
+import Navbar from './components/Navbar';
+import UserLogin from './components/UserLogin';
+import UserSignup from './components/UserSignup';
+import ProductList from './components/ProductList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        {/* Navbar for navigation */}
+        <Navbar />
+        
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<UserLogin />} />
+            <Route path="/signup" element={<UserSignup />} />
+            <Route path="/products" element={<ProductList />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import './App.css'; // Import your CSS styles
+// import Navbar from './components/Navbar';
+// import UserLogin from './components/UserLogin';
+// import UserSignup from './components/UserSignup';
+// import ProductList from './components/ProductList';
+
+// function App() {
+//   return (
+//     <Router>
+//       <div className="App">
+//         {/* Navbar for navigation */}
+//         <Navbar />
+
+//         <div className="content">
+//           <Routes>
+//             {/* Define routes for different pages */}
+//             <Route path="/" element={<UserLogin />} />
+//             <Route path="/signup" element={<UserSignup />} />
+//             <Route path="/products" element={<ProductList />} />
+//           </Routes>
+//         </div>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
